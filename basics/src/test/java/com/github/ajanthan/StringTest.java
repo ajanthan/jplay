@@ -36,6 +36,15 @@ public class StringTest {
         }
     }
 
+    @Test
+    public void isPalindromeTest() {
+        String[] ins = { "test", "12321", "@#$", "1a2bb2a1" };
+        boolean[] revs = { false, true, false, true };
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertTrue(isPalindrome(ins[i]) == revs[i]);
+        }
+    }
+
     public String reverse(String in) {
         if (in.isEmpty()) {
             return in;
@@ -47,5 +56,18 @@ public class StringTest {
             chars[j] = temp;
         }
         return String.copyValueOf(chars);
+    }
+
+    public boolean isPalindrome(String in) {
+        if (in.isEmpty()) {
+            return false;
+        }
+        char[] chars = in.toCharArray();
+        for (int i = 0, j = chars.length - 1; i < j; i++, j--) {
+            if (chars[i] != chars[j]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
