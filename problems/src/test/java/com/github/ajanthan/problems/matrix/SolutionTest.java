@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 public class SolutionTest {
     private Solution solution;
 
@@ -21,8 +19,8 @@ public class SolutionTest {
             { 9, 3, 8, 7 },
             { 15, 16, 17, 12 }
         };
-        List<Integer> result = solution.luckyNumbers(matrix);
-        Assert.assertArrayEquals(new Integer[]{ 12 }, result.toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 12 }, solution.luckyNumbers(matrix).toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 12 }, solution.luckyNumbersV1(matrix).toArray(new Integer[0]));
     }
 
     @Test
@@ -32,8 +30,8 @@ public class SolutionTest {
             { 9, 11, 13 },
             { 15, 16, 17 }
         };
-        List<Integer> result = solution.luckyNumbers(matrix);
-        Assert.assertArrayEquals(new Integer[]{ 15 }, result.toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 15 }, solution.luckyNumbers(matrix).toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 15 }, solution.luckyNumbersV1(matrix).toArray(new Integer[0]));
     }
 
     @Test
@@ -42,7 +40,7 @@ public class SolutionTest {
             { 7, 8 },
             { 1, 2 }
         };
-        List<Integer> result = solution.luckyNumbers(matrix);
-        Assert.assertArrayEquals(new Integer[]{ 7 }, result.toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 7 }, solution.luckyNumbers(matrix).toArray(new Integer[0]));
+        Assert.assertArrayEquals(new Integer[]{ 7 }, solution.luckyNumbersV1(matrix).toArray(new Integer[0]));
     }
 }
