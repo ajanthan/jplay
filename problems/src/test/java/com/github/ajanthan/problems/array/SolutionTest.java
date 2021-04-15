@@ -18,7 +18,11 @@ public class SolutionTest {
         int[] ans = { 1, 4, 1, 3, 0 };
 
         for (int i = 0; i < ans.length; i++) {
-            Assert.assertEquals(ans[i], solution.singleNumber(ins[i]));
+            Assert.assertEquals(ans[i], solution.singleNumberV0(ins[i]));
+            Assert.assertEquals(ans[i], solution.singleNumberV1(ins[i]));
+            Assert.assertEquals(ans[i], solution.singleNumberV2(ins[i]));
+            Assert.assertEquals(ans[i], solution.singleNumberV3(ins[i]));
+            Assert.assertEquals(ans[i], solution.singleNumberV4(ins[i]));
         }
     }
 }
