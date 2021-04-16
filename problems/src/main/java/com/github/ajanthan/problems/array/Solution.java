@@ -62,4 +62,20 @@ public class Solution {
         }
         return r;
     }
+
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> occurrences = new HashMap<>();
+        for (int num : nums) {
+            Integer i = occurrences.get(num);
+            if (i == null) {
+                occurrences.put(num, 1);
+            } else {
+                occurrences.put(num, i + 1);
+            }
+        }
+        for (int majorityEl : occurrences.keySet()) {
+            if (occurrences.get(majorityEl) > (nums.length / 2)) return majorityEl;
+        }
+        return 0;
+    }
 }

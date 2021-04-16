@@ -25,4 +25,14 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.singleNumberV4(ins[i]));
         }
     }
+
+    @Test
+    public void majorityElement() {
+        int[][] ins = { { 3, 2, 3 }, { 2, 2, 1, 1, 1, 2, 2 } };
+        int[] ans = { 3, 2 };
+
+        for (int i = 0; i < ans.length; i++) {
+            Assert.assertEquals(ans[i], solution.majorityElement(ins[i]));
+        }
+    }
 }
