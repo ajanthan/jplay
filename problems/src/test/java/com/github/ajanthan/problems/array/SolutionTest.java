@@ -35,6 +35,7 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.majorityElementV0(ins[i]));
             Assert.assertEquals(ans[i], solution.majorityElementV1(ins[i]));
             Assert.assertEquals(ans[i], solution.majorityElementV2(ins[i]));
+            Assert.assertEquals(ans[i], solution.majorityElementV3(ins[i]));
         }
     }
 }

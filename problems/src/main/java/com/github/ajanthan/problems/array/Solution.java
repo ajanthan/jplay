@@ -97,4 +97,35 @@ public class Solution {
         }
         return majorityNumber;
     }
+
+    public int majorityElementV3(int[] nums) {
+        return findMajorityElementRec(nums, 0, nums.length - 1);
+    }
+
+    private int findMajorityElementRec(int[] nums, int lo, int hi) {
+        if (lo == hi) {
+            return nums[lo];
+        }
+        int mid = lo + (hi - lo) / 2;
+        int left = findMajorityElementRec(nums, lo, mid);
+        int right = findMajorityElementRec(nums, mid + 1, hi);
+
+        if (left == right) {
+            return left;
+        }
+        int leftCount = countInRange(nums, left, lo, hi);
+        int rightCount = countInRange(nums, right, lo, hi);
+
+        return leftCount > rightCount ? left : right;
+    }
+
+    private int countInRange(int[] nums, int num, int lo, int hi) {
+        int count = 0;
+        for (int i = lo; i <= hi; i++) {
+            if (nums[i] == num) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
