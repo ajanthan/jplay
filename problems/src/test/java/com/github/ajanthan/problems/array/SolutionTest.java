@@ -32,7 +32,9 @@ public class SolutionTest {
         int[] ans = { 3, 2 };
 
         for (int i = 0; i < ans.length; i++) {
-            Assert.assertEquals(ans[i], solution.majorityElement(ins[i]));
+            Assert.assertEquals(ans[i], solution.majorityElementV0(ins[i]));
+            Assert.assertEquals(ans[i], solution.majorityElementV1(ins[i]));
+            Assert.assertEquals(ans[i], solution.majorityElementV2(ins[i]));
         }
     }
 }

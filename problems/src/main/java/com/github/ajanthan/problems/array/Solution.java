@@ -63,7 +63,7 @@ public class Solution {
         return r;
     }
 
-    public int majorityElement(int[] nums) {
+    public int majorityElementV0(int[] nums) {
         Map<Integer, Integer> occurrences = new HashMap<>();
         for (int num : nums) {
             Integer i = occurrences.get(num);
@@ -77,5 +77,24 @@ public class Solution {
             if (occurrences.get(majorityEl) > (nums.length / 2)) return majorityEl;
         }
         return 0;
+    }
+
+    public int majorityElementV1(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
+    }
+
+    public int majorityElementV2(int[] nums) {
+        int count = 0, majorityNumber = 0;
+        for (int num : nums) {
+            if (count == 0) {
+                count++;
+                majorityNumber = num;
+            } else {
+                if (majorityNumber == num) count++;
+                else count--;
+            }
+        }
+        return majorityNumber;
     }
 }
