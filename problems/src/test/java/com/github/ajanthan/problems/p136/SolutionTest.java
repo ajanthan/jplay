@@ -1,4 +1,4 @@
-package com.github.ajanthan.problems.array;
+package com.github.ajanthan.problems.p136;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,19 +23,6 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.singleNumberV2(ins[i]));
             Assert.assertEquals(ans[i], solution.singleNumberV3(ins[i]));
             Assert.assertEquals(ans[i], solution.singleNumberV4(ins[i]));
-        }
-    }
-
-    @Test
-    public void majorityElement() {
-        int[][] ins = { { 3, 2, 3 }, { 2, 2, 1, 1, 1, 2, 2 } };
-        int[] ans = { 3, 2 };
-
-        for (int i = 0; i < ans.length; i++) {
-            Assert.assertEquals(ans[i], solution.majorityElementV0(ins[i]));
-            Assert.assertEquals(ans[i], solution.majorityElementV1(ins[i]));
-            Assert.assertEquals(ans[i], solution.majorityElementV2(ins[i]));
-            Assert.assertEquals(ans[i], solution.majorityElementV3(ins[i]));
         }
     }
 }

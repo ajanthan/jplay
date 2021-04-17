@@ -1,4 +1,4 @@
-package com.github.ajanthan.problems.matrix;
+package com.github.ajanthan.problems.p1380;
 
 import java.util.ArrayList;
 import java.util.Arrays;

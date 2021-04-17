@@ -1,4 +1,4 @@
-package com.github.ajanthan.problems.matrix;
+package com.github.ajanthan.problems.p1380;
 
 import org.junit.Assert;
 import org.junit.Before;
