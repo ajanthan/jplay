@@ -9,7 +9,7 @@ public class SolutionTest {
 
     @Before
     public void setUp() throws Exception {
-        this.solution = new Solution();
+        solution = new Solution();
     }
 
     @Test
