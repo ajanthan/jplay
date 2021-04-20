@@ -21,6 +21,7 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.romanToIntV0(ins[i]));
         }
     }
+
     @Test
     public void romanToIntV1() {
         String[] ins = { "III", "IV", "IX", "LVIII", "MCMXCIV" };
