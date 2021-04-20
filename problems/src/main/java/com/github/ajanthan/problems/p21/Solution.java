@@ -59,4 +59,33 @@ public class Solution {
         }
         return root.next;
     }
+
+    public ListNode mergeKListsV1(ListNode[] lists) {
+        if (lists.length > 0) {
+            ListNode merged = lists[0];
+            for (int i = 1; i < lists.length; i++) {
+                merged = mergeTwoListsV1(merged, lists[i]);
+            }
+            return merged;
+        } else {
+            return null;
+        }
+
+    }
+
+    public ListNode mergeKListsV2(ListNode[] lists) {
+        if (lists.length > 0) {
+            int interval = 1;
+            while (interval < lists.length) {
+                for (int i = 0; i + interval < lists.length; i += interval * 2) {
+                    lists[i] = mergeTwoListsV1(lists[i], lists[i + interval]);
+                }
+                interval *= 2;
+            }
+            return lists[0];
+        } else {
+            return null;
+        }
+
+    }
 }
