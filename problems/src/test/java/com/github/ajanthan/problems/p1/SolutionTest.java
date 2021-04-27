@@ -24,8 +24,6 @@ public class SolutionTest {
         for (int i = 0; i < ins.length; i++) {
             ret = solution.twoSum(ins[i][0], ins[i][1][0]);
             Assert.assertArrayEquals(ans[i], ret);
-
-
         }
     }
 }
