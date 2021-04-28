@@ -31,4 +31,11 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.isValid(ins[i]));
         }
     }
+
+    @Test
+    public void isValidV1() {
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertEquals(ans[i], solution.isValidV1(ins[i]));
+        }
+    }
 }
