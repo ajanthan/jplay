@@ -26,4 +26,23 @@ public class Solution {
         }
         return null;
     }
+
+    public String longestCommonPrefixV2(String[] strs) {
+        return longestCommonPrefixInSubArrayV2(strs, 0, strs.length - 1);
+    }
+
+    public String longestCommonPrefixInSubArrayV2(String[] strs, int s, int e) {
+        if (s == e) return strs[s];
+        int mid = (s + e) / 2;
+        String leftLsp = longestCommonPrefixInSubArrayV2(strs, s, mid);
+        String rightLsp = longestCommonPrefixInSubArrayV2(strs, mid + 1, e);
+
+        int minLength = Math.min(leftLsp.length(), rightLsp.length());
+        for (int i = 0; i < minLength; i++) {
+            if (leftLsp.charAt(i) != rightLsp.charAt(i)) {
+                return leftLsp.substring(0, i);
+            }
+        }
+        return leftLsp.substring(0, minLength);
+    }
 }

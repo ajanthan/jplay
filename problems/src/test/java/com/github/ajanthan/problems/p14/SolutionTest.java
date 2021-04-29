@@ -34,4 +34,11 @@ public class SolutionTest {
             Assert.assertEquals(ans[i], solution.longestCommonPrefixV1(ins[i]));
         }
     }
+
+    @Test
+    public void longestCommonPrefixV2() {
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertEquals(ans[i], solution.longestCommonPrefixV2(ins[i]));
+        }
+    }
 }
