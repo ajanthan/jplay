@@ -28,4 +28,31 @@ public class SolutionTest {
             Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
         }
     }
+
+    @Test
+    public void longestPalindromeV1() {
+        String r;
+        for (int i = 0; i < ins.length; i++) {
+            r = solution.longestPalindromeV1(ins[i]);
+            Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
+        }
+    }
+
+    @Test
+    public void longestPalindromeV2() {
+        String r;
+        for (int i = 0; i < ins.length; i++) {
+            r = solution.longestPalindromeV2(ins[i]);
+            Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
+        }
+    }
+
+    @Test
+    public void longestPalindrome() {
+        String r;
+        for (int i = 0; i < ins.length; i++) {
+            r = solution.longestPalindrome(ins[i]);
+            Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
+        }
+    }
 }
