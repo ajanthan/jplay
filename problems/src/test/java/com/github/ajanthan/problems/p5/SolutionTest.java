@@ -47,12 +47,12 @@ public class SolutionTest {
         }
     }
 
-    @Test
-    public void longestPalindrome() {
-        String r;
-        for (int i = 0; i < ins.length; i++) {
-            r = solution.longestPalindrome(ins[i]);
-            Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
-        }
-    }
+//    @Test
+//    public void longestPalindrome() {
+//        String r;
+//        for (int i = 0; i < ins.length; i++) {
+//            r = solution.longestPalindrome(ins[i]);
+//            Assert.assertTrue(ans[i][0].equals(r) || (ans[i].length > 1 && ans[i][1].equals(r)));
+//        }
+//    }
 }
