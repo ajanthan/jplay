@@ -1,6 +1,22 @@
 package com.github.ajanthan.sorting;
 
 public class Sorter {
+    public static int[] SelectionSort(int[] in) {
+        int minIndex;
+        for (int i = 0; i < in.length; i++) {
+            minIndex = i;
+            for (int j = i + 1; j < in.length; j++) {
+                if (in[j] < in[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int temp = in[i];
+            in[i] = in[minIndex];
+            in[minIndex] = temp;
+        }
+        return in;
+    }
+
     public static int[] MergeSort(int[] in) {
         return split(in, 0, in.length - 1);
     }
@@ -68,7 +84,7 @@ public class Sorter {
     private static int getPivot(int[] in, int s, int e) {
         int i = s, j = s, pivot = e;
         while (j < e) {
-            if (in[j] < in[pivot]) {
+            if (in[j] <= in[pivot]) {
                 int temp = in[j];
                 in[j] = in[i];
                 in[i] = temp;
