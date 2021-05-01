@@ -6,7 +6,7 @@ public class Sorter {
     }
 
     public static int[] BubbleSort(int[] in) {
-        for (int i = 0; i < in.length-1; i++) {
+        for (int i = 0; i < in.length - 1; i++) {
             for (int j = 0; j < in.length - 1 - i; j++) {
                 if (in[j] > in[j + 1]) {
                     int temp = in[j];
@@ -47,5 +47,39 @@ public class Sorter {
             ret[i++] = right[r++];
         }
         return ret;
+    }
+
+    public static int[] QuickSort(int[] in) {
+        quickSortHelper(in, 0, in.length - 1);
+        return in;
+    }
+
+    private static void quickSortHelper(int[] in, int s, int e) {
+        if (e == s) return;
+        int pivot = getPivot(in, s, e);
+        if (pivot > 0) {
+            quickSortHelper(in, s, pivot - 1);
+        }
+        quickSortHelper(in, pivot, e);
+
+    }
+
+    //1, 3, 4, 5, 2
+    private static int getPivot(int[] in, int s, int e) {
+        int i = s, j = s, pivot = e;
+        while (j < e) {
+            if (in[j] < in[pivot]) {
+                int temp = in[j];
+                in[j] = in[i];
+                in[i] = temp;
+                i++;
+            }
+            j++;
+
+        }
+        int temp = in[i];
+        in[i] = in[pivot];
+        in[pivot] = temp;
+        return i;
     }
 }
