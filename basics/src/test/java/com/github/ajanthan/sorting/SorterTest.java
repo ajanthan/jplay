@@ -30,4 +30,10 @@ public class SorterTest extends TestCase {
             Assert.assertArrayEquals(ans[i], Sorter.SelectionSort(ins[i]));
         }
     }
+
+    public void testInsertionSort() {
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertArrayEquals(ans[i], Sorter.InsertionSort(ins[i]));
+        }
+    }
 }

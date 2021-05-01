@@ -1,6 +1,18 @@
 package com.github.ajanthan.sorting;
 
 public class Sorter {
+    public static int[] InsertionSort(int[] in) {
+        for (int i = 1; i < in.length; i++) {
+            int key = in[i], j = i - 1;
+            while (j >= 0 && in[j] > key) {
+                in[j + 1] = in[j];
+                j--;
+            }
+            in[j + 1] = key;
+        }
+        return in;
+    }
+
     public static int[] SelectionSort(int[] in) {
         int minIndex;
         for (int i = 0; i < in.length; i++) {
