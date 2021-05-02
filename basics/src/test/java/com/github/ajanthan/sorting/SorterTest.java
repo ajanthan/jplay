@@ -36,4 +36,10 @@ public class SorterTest extends TestCase {
             Assert.assertArrayEquals(ans[i], Sorter.InsertionSort(ins[i]));
         }
     }
+
+    public void testCountingSort() {
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertArrayEquals(ans[i], Sorter.CountingSort(ins[i]));
+        }
+    }
 }

@@ -1,6 +1,40 @@
 package com.github.ajanthan.sorting;
 
 public class Sorter {
+    public static int[] CountingSort(int[] in) {
+        int max = findMax(in);
+        int[] aux = new int[max + +10 + 1];
+        int[] ret = new int[in.length];
+        for (int i = 0; i < in.length; i++) {
+            aux[in[i] + 10]++;
+        }
+        int count = 0;
+        for (int i = 0; i < aux.length; i++) {
+            if (aux[i] != 0) {
+                aux[i] = count + aux[i];
+                count = aux[i];
+            }
+        }
+        for (int i = 0; i < in.length; i++) {
+            int index = --aux[in[i] + 10];
+            ret[index] = in[i];
+        }
+        return ret;
+    }
+
+    private static int findMax(int[] in) {
+        if (in.length == 0) {
+            throw new RuntimeException("empty input");
+        }
+        int max = in[0];
+        for (int i = 1; i < in.length; i++) {
+            if (in[i] > max) {
+                max = in[i];
+            }
+        }
+        return max;
+    }
+
     public static int[] InsertionSort(int[] in) {
         for (int i = 1; i < in.length; i++) {
             int key = in[i], j = i - 1;
