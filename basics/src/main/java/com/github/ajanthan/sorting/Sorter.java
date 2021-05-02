@@ -8,12 +8,8 @@ public class Sorter {
         for (int i = 0; i < in.length; i++) {
             aux[in[i] + 10]++;
         }
-        int count = 0;
-        for (int i = 0; i < aux.length; i++) {
-            if (aux[i] != 0) {
-                aux[i] = count + aux[i];
-                count = aux[i];
-            }
+        for (int i = 1; i < aux.length; i++) {
+            aux[i] += aux[i - 1];
         }
         for (int i = 0; i < in.length; i++) {
             int index = --aux[in[i] + 10];
