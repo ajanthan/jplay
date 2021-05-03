@@ -52,4 +52,19 @@ public class SortedMerge {
             j++;
         }
     }
+
+    public void mergeV2(int[] a, int aSize, int[] b) {
+        int i = aSize - 1, j = b.length - 1, k = a.length - 1;
+        while (j >= 0) {
+            if (i >= 0 && a[i] > b[j]) {
+                a[k] = a[i];
+                i--;
+            } else {
+                a[k] = b[j];
+                j--;
+            }
+            k--;
+        }
+
+    }
 }
