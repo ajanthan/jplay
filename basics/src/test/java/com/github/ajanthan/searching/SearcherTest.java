@@ -30,4 +30,11 @@ public class SearcherTest extends TestCase {
         int last = Searcher.FindLast(ins[2][0], 5);
         Assert.assertEquals(6, last);
     }
+
+    public void testBinarySearchIter() {
+        for (int i = 0; i < ins.length; i++) {
+            int index = Searcher.BinarySearchIter(ins[i][0], ins[i][1][0]);
+            Assert.assertTrue(ans[i][0] == index || (ans[i].length > 1 && ans[i][1] == index));
+        }
+    }
 }

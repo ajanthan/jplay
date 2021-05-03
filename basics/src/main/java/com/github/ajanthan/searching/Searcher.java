@@ -47,4 +47,19 @@ public class Searcher {
         }
         return i;
     }
+
+    public static int BinarySearchIter(int[] in, int x) {
+        int start = 0, end = in.length - 1, mid;
+        while (end >= start) {
+            mid = start + (end - start) / 2;
+            if (in[mid] == x) {
+                return mid;
+            } else if (x < in[mid]) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
 }
