@@ -26,6 +26,7 @@ public class SolutionTest {
           { 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0 } },
         { { 0, 0, 0, 0, 0, 0, 0, 0 } } };
     int[] ans = { 0, 1, 0, 2, 3, 6, 0 };
+    int[] counts = { 0, 1, 0, 1, 2, 6, 0 };
 
     @Before
     public void setUp() throws Exception {
@@ -36,6 +37,13 @@ public class SolutionTest {
     public void maxAreaOfIsland() {
         for (int i = 0; i < ins.length; i++) {
             Assert.assertEquals(ans[i], solution.maxAreaOfIsland(ins[i]));
+        }
+    }
+
+    @Test
+    public void countIslands() {
+        for (int i = 0; i < ins.length; i++) {
+            Assert.assertEquals(counts[i], solution.countIslands(ins[i]));
         }
     }
 }
