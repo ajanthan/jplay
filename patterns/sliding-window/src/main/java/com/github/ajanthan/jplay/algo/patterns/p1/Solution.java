@@ -20,16 +20,17 @@ public class Solution {
     space: O(1)
      */
     public int getMaxSum(int[] nums, int k) {
-        int maxSum, currentSum = 0, i, j = 0;
-        for (i = 0; i < k; i++) {
-            currentSum += nums[i];
-        }
-        maxSum = currentSum;
-        while (i < nums.length && j < nums.length - k) {
-            currentSum = currentSum + nums[i] - nums[j];
-            maxSum = Math.max(currentSum, maxSum);
+        int maxSum = Integer.MIN_VALUE, currentSum = 0, i = 0, j = 0;
+
+        while (j < nums.length && i < nums.length - k) {
+            currentSum += nums[j];
+            if (j >= k) {
+                currentSum = currentSum - nums[i];
+                maxSum = Math.max(currentSum, maxSum);
+                i++;
+            }
             j++;
-            i++;
+
         }
         return maxSum;
     }
