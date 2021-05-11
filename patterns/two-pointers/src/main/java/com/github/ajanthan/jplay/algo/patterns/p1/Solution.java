@@ -36,6 +36,6 @@ public class Solution {
                 left++;
             }
         }
-        return null;
+        return new int[]{ -1, -1 };
     }
 }
