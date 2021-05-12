@@ -20,11 +20,21 @@ Explanation: There are seven contiguous subarrays whose product is less than the
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println("Output: " + solution.getProductSubArray(new int[]{ 2, 5, 3, 10 }, 30));
-        System.out.println("Output: " + solution.getProductSubArray(new int[]{ 8, 2, 6, 5 }, 50));
+        System.out.println("Output: " + solution.getProductSubArrayV0(new int[]{ 2, 5, 3, 10 }, 30));
+        System.out.println("Output: " + solution.getProductSubArrayV1(new int[]{ 2, 5, 3, 10 }, 30));
+        System.out.println();
+        System.out.println("Output: " + solution.getProductSubArrayV0(new int[]{ 8, 2, 6, 5 }, 50));
+        System.out.println("Output: " + solution.getProductSubArrayV1(new int[]{ 8, 2, 6, 5 }, 50));
+        System.out.println();
+        System.out.println("Output: " + solution.getProductSubArrayV0(new int[]{ 8, 2, 6, 5, 20 }, 20));
+        System.out.println("Output: " + solution.getProductSubArrayV1(new int[]{ 8, 2, 6, 5, 20 }, 20));
+        System.out.println();
+        System.out.println("Output: " + solution.getProductSubArrayV0(new int[]{ 1, 2, 3, 5, 6, 7, 20 }, 40));
+        System.out.println("Output: " + solution.getProductSubArrayV1(new int[]{ 1, 2, 3, 5, 6, 7, 20 }, 40));
     }
 
-    public List<List<Integer>> getProductSubArray(int[] nums, int k) {
+    //wrong
+    public List<List<Integer>> getProductSubArrayV0(int[] nums, int k) {
         List<List<Integer>> res = new ArrayList<>();
         int start = 0, end = 1, runningProduct = nums[0];
         res.add(Arrays.asList(nums[0]));
@@ -43,11 +53,31 @@ public class Solution {
 
             }
             if (runningProduct < k && start != end) {
-                res.add(new ArrayList<Integer>(l));
+                if (!l.isEmpty())
+                    res.add(new ArrayList<Integer>(l));
             }
             end++;
         }
 
+        return res;
+    }
+
+    //new int[]{ 2, 5, 3, 10 }, 30
+    public List<List<Integer>> getProductSubArrayV1(int[] nums, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        int start = 0, runningProduct = 1;
+        for (int end = 0; end < nums.length; end++) {
+            runningProduct *= nums[end];
+            while (runningProduct >= k && start < nums.length) {
+                runningProduct /= nums[start];
+                start++;
+            }
+            List<Integer> l = new ArrayList<>();
+            for (int j = end; j > start - 1; j--) {
+                l.add(nums[j]);
+                res.add(new ArrayList<Integer>(l));
+            }
+        }
         return res;
     }
 }
