@@ -31,18 +31,19 @@ public class Solution {
 
     public int findTripletSum(int[] nums, int target) {
         Arrays.sort(nums);
-        int start, end, currentDelta, smallestDelta = Integer.MAX_VALUE, sum = Integer.MAX_VALUE;
+        int start, end, currentDelta, smallestDelta = Integer.MAX_VALUE, sum = Integer.MAX_VALUE, currentSum;
         for (int i = 0; i < nums.length; i++) {
             start = i + 1;
             end = nums.length - 1;
             while (start < end) {
-                currentDelta = target - (nums[start] + nums[end] + nums[i]);
+                currentSum = (nums[start] + nums[end] + nums[i]);
+                currentDelta = target - currentSum;
 
                 if (Math.abs(currentDelta) == smallestDelta) {
-                    sum = Math.min(sum, nums[start] + nums[end] + nums[i]);
+                    sum = Math.min(sum, currentSum);
                 } else if (Math.abs(currentDelta) < smallestDelta) {
                     smallestDelta = Math.abs(currentDelta);
-                    sum = nums[start] + nums[end] + nums[i];
+                    sum = currentSum;
                 }
                 if ((currentDelta == 0)) {
                     start++;
