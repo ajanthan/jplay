@@ -29,10 +29,11 @@ public class Solution {
         for (int i = 0; i < s.length(); i++) {
             List<String> temp = new ArrayList<>();
             for (String p : result) {
-                Character c = s.charAt(i);
+                StringBuilder builder = new StringBuilder(p);
+                char c = p.charAt(i);
                 if (Character.isAlphabetic(c)) {
                     c = Character.toUpperCase(c);
-                    p = p.substring(0, i) + c + p.substring(i + 1);
+                    builder.setCharAt(i, c);
                     temp.add(p);
                 }
             }
