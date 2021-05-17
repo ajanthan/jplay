@@ -22,6 +22,9 @@ public class Solution {
         Solution solution = new Solution();
         System.out.println("Output: " + solution.getIntersections(new int[][]{ { 1, 3 }, { 5, 6 }, { 7, 9 } }, new int[][]{ { 2, 3 }, { 5, 7 } }));
         System.out.println("Output: " + solution.getIntersections(new int[][]{ { 1, 3 }, { 5, 7 }, { 9, 12 } }, new int[][]{ { 5, 10 } }));
+
+        System.out.println("Output: " + solution.merge(new int[][]{ { 1, 3 }, { 5, 6 }, { 7, 9 } }, new int[][]{ { 2, 3 }, { 5, 7 } }));
+        System.out.println("Output: " + solution.merge(new int[][]{ { 1, 3 }, { 5, 7 }, { 9, 12 } }, new int[][]{ { 5, 10 } }));
     }
 
     public List<List<Integer>> getIntersections(int[][] l1, int[][] l2) {
@@ -52,6 +55,29 @@ public class Solution {
 
             }
 
+        }
+        return result;
+    }
+
+    public List<List<Integer>> merge(int[][] l1, int[][] l2) {
+        //l1#start######end
+        //      l2#start######end
+        //      l1#start######end
+        //l2#start######end
+        List<List<Integer>> result = new ArrayList<>();
+        int i1 = 0, i2 = 0, start = 0, end = 1;
+        while (i1 < l1.length && i2 < l2.length) {
+            //arr1=[[1, 3], [5, 7], [9, 12]],
+            //arr2=[[5, 10]]
+            if ((l1[i1][start] <= l2[i2][start] && l1[i1][end] >= l2[i2][start]) ||
+                (l1[i1][start] >= l2[i2][start] && l1[i1][start] <= l2[i2][end])) {
+                result.add(Arrays.asList(Math.max(l1[i1][start], l2[i2][start]), Math.min(l1[i1][end], l2[i2][end])));
+            }
+            if (l1[i1][end] > l2[i2][end]) {
+                i2++;
+            } else {
+                i1++;
+            }
         }
         return result;
     }
