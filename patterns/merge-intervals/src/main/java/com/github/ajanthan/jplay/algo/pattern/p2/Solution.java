@@ -41,16 +41,12 @@ public class Solution {
         System.out.println("Output: " + solution.getMergedInterval(intervals4, new int[]{ 8, 9 }));
     }
 
-    //Intervals=[[1,3], [5,7], [8,12]], New Interval=[4,6]
     public List<List<Integer>> getMergedInterval(int[][] intervals, int[] newInterval) {
         List<List<Integer>> result = new ArrayList<>();
         boolean isMerged = false;
         for (int[] oldInterval : intervals) {
-            //          old-----
-            //         new---
             if (!isMerged) {
                 if (oldInterval[0] < newInterval[0]) {
-
                     if (oldInterval[1] < newInterval[0]) {
                         result.add(Arrays.asList(oldInterval[0], oldInterval[1]));
                     } else {
@@ -75,6 +71,25 @@ public class Solution {
             }
         }
         if (!isMerged) result.add(Arrays.asList(newInterval[0], newInterval[1]));
+        return result;
+    }
+
+    public List<List<Integer>> getMergedIntervalV0(int[][] intervals, int[] newInterval) {
+        List<List<Integer>> result = new ArrayList<>();
+        int i = 0, start = 0, end = 1;
+        while (i < intervals.length && intervals[i][end] < newInterval[start]) {
+            result.add(Arrays.asList(intervals[i][start], intervals[i][end]));
+            i++;
+        }
+        while (i < intervals.length && intervals[i][end] <= newInterval[start] && intervals[i][start] <= newInterval[end]) {
+            newInterval[start] = Math.min(intervals[i][start], newInterval[start]);
+            newInterval[end] = Math.min(intervals[i][end], newInterval[end]);
+            result.add(Arrays.asList(newInterval[start], newInterval[end]));
+        }
+        while (i < intervals.length) {
+            result.add(Arrays.asList(intervals[i][start], intervals[i][end]));
+            i++;
+        }
         return result;
     }
 }
