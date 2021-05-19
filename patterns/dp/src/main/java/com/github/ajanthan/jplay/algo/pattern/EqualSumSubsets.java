@@ -77,16 +77,16 @@ public class EqualSumSubsets {
         if (target < 0 || i >= nums.length) {
             return false;
         }
-        boolean reWithI, reWithoutI;
-        if (memo[i][target - nums[i]] == null) {
-            memo[i][target - nums[i]] = hasEqualSumSubsetRecursively(nums, i + 1, target - nums[i]);
-        }
-        reWithI = memo[i][target - nums[i]];
-
+        boolean reWithI = false, reWithoutI;
         if (memo[i][target] == null) {
-            memo[i][target] = hasEqualSumSubsetRecursively(nums, i + 1, target);
+            if (nums[i] <= target) {
+                reWithI = hasEqualSumSubsetRecursively(nums, i + 1, target - nums[i]);
+            }
+            reWithoutI = hasEqualSumSubsetRecursively(nums, i + 1, target);
+            memo[i][target] = reWithI || reWithoutI;
         }
-        reWithoutI = memo[i][target];
-        return reWithI || reWithoutI;
+
+
+        return memo[i][target];
     }
 }
