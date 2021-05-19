@@ -32,32 +32,29 @@ public class EqualSumSubsets {
             return false;
         }
         int s = sum / 2;
-        Integer[][] dp = new Integer[nums.length][s + 1];
+        Boolean[][] dp = new Boolean[nums.length][s + 1];
 
         for (int i = 0; i < nums.length; i++) {
-            dp[i][0] = 0;
+            dp[i][0] = true;
         }
-        if (nums[0] <= s) {
-            dp[0][nums[0]] = nums[0];
+        for (int i = 1; i <= s; i++) {
+            dp[0][i] = nums[0] == s;
         }
+
         for (int i = 1; i < nums.length; i++) {
             for (int j = 1; j <= s; j++) {
+                boolean found1 = false, found2 = false;
                 if (dp[i - 1][j] != null) {
-                    dp[i][j] = dp[i - 1][j];
-                    if (nums[i] + j <= s) {
-                        dp[i][j + nums[i]] = dp[i - 1][j] + nums[i];
-                    }
+                    found1 = dp[i - 1][j];
                 }
-
+                if (j - nums[i] >= 0 && dp[i - 1][j - nums[i]] != null) {
+                    found2 = dp[i - 1][j - nums[i]];
+                }
+                dp[i][j] = found1 || found2;
             }
         }
 
-        for (Integer[] x : dp) {
-            if (x[s] != null) {
-                return true;
-            }
-        }
-        return false;
+        return dp[nums.length - 1][s];
     }
 
     private boolean hasEqualSumSubsetRecursively(int[] nums, int i, int target) {
