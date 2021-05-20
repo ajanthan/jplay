@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern.zerooneknapsack;
+package com.github.ajanthan.jplay.algo.pattern.unboundedknapsack;
 
 import com.github.ajanthan.jplay.algo.pattern.unboundedknapsack.RodCutting;
 import junit.framework.TestCase;
