@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.unboundedknapsack;
 
 /**
  * Given a rod of length n inches and an array of prices that contains prices of all pieces of size smaller than n.

@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.zerooneknapsack;
 
 import java.util.ArrayList;
 import java.util.List;

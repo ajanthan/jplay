@@ -1,5 +1,6 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.unboundedknapsack;
 
+import com.github.ajanthan.jplay.algo.pattern.unboundedknapsack.UnboundedKnapsack;
 import junit.framework.TestCase;
 import org.junit.Assert;
 

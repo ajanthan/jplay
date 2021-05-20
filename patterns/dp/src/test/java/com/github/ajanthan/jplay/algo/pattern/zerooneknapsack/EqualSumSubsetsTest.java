@@ -1,5 +1,6 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.zerooneknapsack;
 
+import com.github.ajanthan.jplay.algo.pattern.zerooneknapsack.EqualSumSubsets;
 import junit.framework.TestCase;
 import org.junit.Assert;
 

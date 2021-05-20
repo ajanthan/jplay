@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.zerooneknapsack;
 
 public class EqualSumSubsets {
     public boolean hasEqualSumSubsetV0(int[] nums) {

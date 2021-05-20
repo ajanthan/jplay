@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.unboundedknapsack;
 
 public class UnboundedKnapsack {
     //new int[]{ 1, 30 }, new int[]{ 1, 50 }, 100

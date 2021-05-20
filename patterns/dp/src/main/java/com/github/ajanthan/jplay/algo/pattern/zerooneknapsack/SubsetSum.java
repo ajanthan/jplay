@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.zerooneknapsack;
 
 /*
 Given a set of non-negative integers, and a value sum,
