@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.fibnumber;
 
 public class TripleStep {
     public int getPossibleWaysV1(int steps) {

@@ -1,4 +1,4 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.fibnumber;
 
 public class Fibonacci {
     public static int callCount = 0;

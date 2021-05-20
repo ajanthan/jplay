@@ -1,5 +1,6 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.fibnumber;
 
+import com.github.ajanthan.jplay.algo.pattern.fibnumber.TripleStep;
 import junit.framework.TestCase;
 
 public class TripleStepTest extends TestCase {

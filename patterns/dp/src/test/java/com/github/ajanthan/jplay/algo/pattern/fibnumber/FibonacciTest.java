@@ -1,5 +1,6 @@
-package com.github.ajanthan.jplay.algo.pattern;
+package com.github.ajanthan.jplay.algo.pattern.fibnumber;
 
+import com.github.ajanthan.jplay.algo.pattern.fibnumber.Fibonacci;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
