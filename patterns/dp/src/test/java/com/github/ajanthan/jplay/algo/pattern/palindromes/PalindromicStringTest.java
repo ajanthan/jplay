@@ -1,6 +1,5 @@
 package com.github.ajanthan.jplay.algo.pattern.palindromes;
 
-import com.github.ajanthan.jplay.algo.pattern.palindromes.PalindromicString;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
@@ -12,9 +11,15 @@ public class PalindromicStringTest extends TestCase {
         palindromicString = new PalindromicString();
     }
 
-    public void testGetLongestSubstring() {
-        Assert.assertEquals("geeksskeeg", palindromicString.getLongestSubstring("forgeeksskeegfor"));
-        Assert.assertEquals("ee", palindromicString.getLongestSubstring("Geeks"));
-        Assert.assertEquals("aba", palindromicString.getLongestSubstring("forabafor"));
+    public void testGetLongestSubstringV0() {
+        Assert.assertEquals("geeksskeeg", palindromicString.getLongestSubstringV0("forgeeksskeegfor"));
+        Assert.assertEquals("ee", palindromicString.getLongestSubstringV0("Geeks"));
+        Assert.assertEquals("aba", palindromicString.getLongestSubstringV0("forabafor"));
+    }
+
+    public void testGetLongestSubstringV1() {
+        Assert.assertEquals("geeksskeeg", palindromicString.getLongestSubstringV1("forgeeksskeegfor"));
+        Assert.assertEquals("ee", palindromicString.getLongestSubstringV1("Geeks"));
+        Assert.assertEquals("aba", palindromicString.getLongestSubstringV1("forabafor"));
     }
 }
