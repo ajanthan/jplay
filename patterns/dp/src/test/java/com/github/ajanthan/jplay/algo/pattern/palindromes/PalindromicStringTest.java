@@ -22,4 +22,9 @@ public class PalindromicStringTest extends TestCase {
         Assert.assertEquals("ee", palindromicString.getLongestSubstringV1("Geeks"));
         Assert.assertEquals("aba", palindromicString.getLongestSubstringV1("forabafor"));
     }
+
+    public void testGetCountOfPalindromicSubStrings() {
+        Assert.assertEquals(3, palindromicString.getCountOfPalindromicSubStrings("abaab"));
+        Assert.assertEquals(4, palindromicString.getCountOfPalindromicSubStrings("abbaeae"));
+    }
 }
