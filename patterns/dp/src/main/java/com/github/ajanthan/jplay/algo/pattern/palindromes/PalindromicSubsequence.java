@@ -36,4 +36,23 @@ public class PalindromicSubsequence {
         }
         return dp[0][s.length() - 1];
     }
+
+    public int minimumNumberOfDeletion(String s) {
+        int[][] dp = new int[s.length()][s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            dp[i][i] = 1;
+        }
+        // bbbab
+        //b
+        for (int left = s.length() - 1; left >= 0; left--) {
+            for (int right = left + 1; right < s.length(); right++) {
+                if (s.charAt(left) == s.charAt(right)) {
+                    dp[left][right] = 2 + dp[left + 1][right - 1];
+                } else {
+                    dp[left][right] = Math.max(dp[left][right - 1], dp[left + 1][right]);
+                }
+            }
+        }
+        return s.length() - dp[0][s.length() - 1];
+    }
 }

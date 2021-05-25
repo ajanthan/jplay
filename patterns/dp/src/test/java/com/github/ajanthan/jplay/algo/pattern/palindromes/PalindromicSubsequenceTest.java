@@ -22,4 +22,10 @@ public class PalindromicSubsequenceTest extends TestCase {
         Assert.assertEquals(2, palindromicSubsequence.getLongestPalindromicSubsequenceV1("cbbd"));
         Assert.assertEquals(1, palindromicSubsequence.getLongestPalindromicSubsequenceV1("abc"));
     }
+
+    public void testMinimumNumberOfDeletion() {
+        Assert.assertEquals(1, palindromicSubsequence.minimumNumberOfDeletion("bbbab"));
+        Assert.assertEquals(2, palindromicSubsequence.minimumNumberOfDeletion("aebcbda"));
+        Assert.assertEquals(8, palindromicSubsequence.minimumNumberOfDeletion("geeksforgeeks"));
+    }
 }
