@@ -29,4 +29,25 @@ public class MatrixChainMultiplication {
         }
         return minCount;
     }
+
+    public int minOperationMultiplicationV1(int[] p) {
+        int[][] dp = new int[p.length][p.length];
+        for (int i = 0; i < p.length; i++) {
+            dp[i][i] = 0;
+        }
+        //[1,2,3,4]
+        //   i   j
+        for (int l = 2; l < p.length; l++) {
+            for (int i = 1; i < p.length + 1 - l; i++) {
+                int j = i + l - 1;
+                int currentCount;
+                dp[i][j] = Integer.MAX_VALUE;
+                for (int k = i; k < j; k++) {
+                    currentCount = dp[i][k] + dp[k + 1][j] + p[i - 1] * p[k] * p[j];
+                    dp[i][j] = Math.min(currentCount, dp[i][j]);
+                }
+            }
+        }
+        return dp[1][p.length - 1];
+    }
 }

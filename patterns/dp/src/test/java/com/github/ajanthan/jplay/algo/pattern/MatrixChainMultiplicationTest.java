@@ -16,4 +16,10 @@ public class MatrixChainMultiplicationTest extends TestCase {
         Assert.assertEquals(30000, matrixChainMultiplication.minOperationMultiplicationV0(new int[]{ 10, 20, 30, 40, 30 }));
         Assert.assertEquals(6000, matrixChainMultiplication.minOperationMultiplicationV0(new int[]{ 10, 20, 30 }));
     }
+
+    public void testMinOperationMultiplicationV1() {
+        Assert.assertEquals(26000, matrixChainMultiplication.minOperationMultiplicationV1(new int[]{ 40, 20, 30, 10, 30 }));
+        Assert.assertEquals(30000, matrixChainMultiplication.minOperationMultiplicationV1(new int[]{ 10, 20, 30, 40, 30 }));
+        Assert.assertEquals(6000, matrixChainMultiplication.minOperationMultiplicationV1(new int[]{ 10, 20, 30 }));
+    }
 }
