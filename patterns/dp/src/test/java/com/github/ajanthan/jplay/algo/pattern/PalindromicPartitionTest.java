@@ -15,4 +15,9 @@ public class PalindromicPartitionTest extends TestCase {
         Assert.assertEquals(2, palindromicPartition.minCutV0("geek"));
         Assert.assertEquals(3, palindromicPartition.minCutV0("ababbbabbababa"));
     }
+
+    public void testMinCutV1() {
+        Assert.assertEquals(2, palindromicPartition.minCutV1("geek"));
+        Assert.assertEquals(3, palindromicPartition.minCutV1("ababbbabbababa"));
+    }
 }
