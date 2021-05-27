@@ -33,16 +33,13 @@ public class PalindromicPartition {
 
     public int minCutV1(String s) {
         boolean[][] plDP = new boolean[s.length()][s.length()];
-        int[][] dp = new int[s.length()][s.length()];
-        dp[0][dp.length - 1] = -1;
+        int[] dp = new int[s.length()];
         for (int i = 0; i < s.length(); i++) {
             plDP[i][i] = true;
-            dp[i][i] = 0;
         }
         for (int i = 0; i < s.length() - 1; i++) {
             if (s.charAt(i) == s.charAt(i + 1)) {
                 plDP[i][i + 1] = true;
-                dp[i][i + 1] = 0;
             }
         }
         for (int l = 3; l <= s.length(); l++) {
@@ -53,22 +50,20 @@ public class PalindromicPartition {
                 }
             }
         }
-
-        for (int l = 2; l <= s.length(); l++) {
-            for (int i = s.length() - l; i >= 0; i--) {
-                int j = i + l - 1;
-                if (plDP[i][j]) {
-                    dp[i][j] = 0;
-                } else {
-                    int cut;
-                    dp[i][j] = Integer.MAX_VALUE;
-                    for (int k = i; k < j; k++) {
-                        cut = dp[i][k] + dp[k + 1][j] + 1;
-                        dp[i][j] = Math.min(dp[i][j], cut);
+        //geek
+        //0123
+        for (int i = 0; i < s.length(); i++) {
+            if (plDP[0][i]) {
+                dp[i] = 0;
+            } else {
+                dp[i] = Integer.MAX_VALUE;
+                for (int k = 0; k < i; k++) {
+                    if (plDP[k + 1][i]) {
+                        dp[i] = Math.min(dp[i], dp[k] + 1);
                     }
                 }
             }
         }
-        return dp[0][s.length() - 1];
+        return dp[s.length() - 1];
     }
 }
