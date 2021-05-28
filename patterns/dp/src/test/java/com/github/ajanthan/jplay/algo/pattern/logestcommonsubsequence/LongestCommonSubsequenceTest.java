@@ -3,12 +3,12 @@ package com.github.ajanthan.jplay.algo.pattern.logestcommonsubsequence;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
-public class LCSTest extends TestCase {
-    private LCS lcs;
+public class LongestCommonSubsequenceTest extends TestCase {
+    private LongestCommonSubsequence lcs;
 
     public void setUp() throws Exception {
         super.setUp();
-        lcs = new LCS();
+        lcs = new LongestCommonSubsequence();
     }
 
     public void testGetLongestCommonSubsequenceV0() {

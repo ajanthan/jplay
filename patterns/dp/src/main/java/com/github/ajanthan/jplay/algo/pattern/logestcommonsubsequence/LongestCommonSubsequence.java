@@ -1,6 +1,6 @@
 package com.github.ajanthan.jplay.algo.pattern.logestcommonsubsequence;
 
-public class LCS {
+public class LongestCommonSubsequence {
     public int getLongestCommonSubsequenceV0(String text1, String text2) {
         return getLongestCommonSubsequenceRecursively(text1, text1.length() - 1, text2, text2.length() - 1);
     }
