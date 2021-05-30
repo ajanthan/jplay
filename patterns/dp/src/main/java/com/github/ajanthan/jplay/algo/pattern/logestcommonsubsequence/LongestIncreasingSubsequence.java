@@ -19,20 +19,26 @@ package com.github.ajanthan.jplay.algo.pattern.logestcommonsubsequence;
 public class LongestIncreasingSubsequence {
     public int getLengthV1(int[] nums) {
         int[] dp = new int[nums.length];
+        int maxLength = 1;
         dp[0] = 1;
         for (int i = 1; i < nums.length; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 if (nums[i] > nums[j]) {
                     dp[i] = Math.max(dp[i], 1 + dp[j]);
+                    maxLength = Math.max(maxLength, dp[i]);
                 }
             }
         }
-        return dp[nums.length - 1];
+        return maxLength;
     }
 
     public int getLengthV0(int[] nums) {
-        return getMaxLengthRecursive(nums, nums.length - 1);
+        int maxLength = 1;
+        for (int i = 1; i < nums.length; i++) {
+            maxLength = Math.max(maxLength, getMaxLengthRecursive(nums, i));
+        }
+        return maxLength;
     }
 
     private int getMaxLengthRecursive(int[] nums, int i) {
