@@ -15,11 +15,11 @@ public class BitonicSubsequence {
                 }
             }
         }
-        lds[0] = 1;
-        for (int i = 1; i < nums.length; i++) {
+        lds[nums.length - 1] = 1;
+        for (int i = nums.length - 2; i >= 0; i--) {
             lds[i] = 1;
-            for (int j = 0; j < i; j++) {
-                if (nums[i] < nums[j]) {
+            for (int j = nums.length - 1; j > i; j--) {
+                if (nums[i] > nums[j]) {
                     lds[i] = Math.max(1 + lds[j], lds[i]);
                 }
             }
