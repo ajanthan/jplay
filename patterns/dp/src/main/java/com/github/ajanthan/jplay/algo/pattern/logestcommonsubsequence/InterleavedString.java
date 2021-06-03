@@ -41,6 +41,28 @@ public class InterleavedString {
     }
 
     public boolean isInterleavedV1(String a, String b, String c) {
-        return isInterleavedV0(a, 0, b, 0, "", c);
+        if (a.length() + b.length() != c.length()) {
+            return false;
+        }
+        return isInterleavedV1(a, 0, b, 0, c, 0, new Boolean[a.length()][b.length()]);
+    }
+
+    private boolean isInterleavedV1(String a, int i, String b, int j, String c, int k, Boolean[][] memo) {
+        if (i == a.length()) {
+            return c.substring(k).equals(b.substring(j));
+        }
+        if (j == b.length()) {
+            return c.substring(k).equals(a.substring(i));
+        }
+        if (memo[i][j] == null) {
+            boolean result = false;
+            if ((a.charAt(i) == c.charAt(k) && isInterleavedV1(a, i + 1, b, j, c, k + 1, memo))
+                || (b.charAt(j) == c.charAt(k) && isInterleavedV1(a, i, b, j + 1, c, k + 1, memo))) {
+                result = true;
+            }
+            memo[i][j] = result;
+
+        }
+        return memo[i][j];
     }
 }

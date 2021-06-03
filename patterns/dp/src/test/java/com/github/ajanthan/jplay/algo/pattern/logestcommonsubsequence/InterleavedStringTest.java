@@ -15,4 +15,9 @@ public class InterleavedStringTest extends TestCase {
         Assert.assertTrue(interleavedString.isInterleavedV0("XXY", "XXZ", "XXXXZY"));
         Assert.assertFalse(interleavedString.isInterleavedV0("YX", "X", "XXY"));
     }
+
+    public void testIsInterleavedV1() {
+        Assert.assertTrue(interleavedString.isInterleavedV1("XXY", "XXZ", "XXXXZY"));
+        Assert.assertFalse(interleavedString.isInterleavedV1("YX", "X", "XXY"));
+    }
 }
