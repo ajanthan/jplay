@@ -73,13 +73,20 @@ public class InOrder {
         while (currentNode != null) {
             if (currentNode.left != null) {
                 previousNode = currentNode.left;
-                while (previousNode.right != null) {
+                while (previousNode.right != null && previousNode.right != currentNode) {
                     previousNode = previousNode.right;
                 }
-                previousNode.right = currentNode;
-                TreeNode temp = currentNode;
-                currentNode = currentNode.left;
-                temp.left = null;
+                if (previousNode.right == null) {
+                    previousNode.right = currentNode;
+                    currentNode = currentNode.left;
+                } else {
+                    previousNode.right = null;
+                    if (currentNode.val <= previousVal) {
+                        return false;
+                    }
+                    previousVal = currentNode.val;
+                    currentNode = currentNode.right;
+                }
             } else {
                 if (currentNode.val <= previousVal) {
                     return false;
