@@ -43,4 +43,23 @@ public class InOrderTest extends TestCase {
         Assert.assertFalse(inOrder.isBinarySearchTreeRecursive(root2));
         Assert.assertFalse(inOrder.isBinarySearchTreeRecursive(root3));
     }
+
+    public void testPrintTreeMorrisTraversal() {
+        InOrder inOrder = new InOrder();
+        TreeNode root0 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 5, 6, 7 });
+        inOrder.printTreeMorrisTraversal(root0);
+    }
+
+    public void testIsBinarySearchTreeNoRecursion() {
+        InOrder inOrder = new InOrder();
+        TreeNode root0 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 5, 6, 7 });
+        TreeNode root1 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 6, 5, 7 });
+        TreeNode root2 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 5, 7, 7 });
+        TreeNode root3 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 5, 7, 6 });
+
+        Assert.assertTrue(inOrder.isBinarySearchTreeNoRecursion(root0));
+        Assert.assertFalse(inOrder.isBinarySearchTreeNoRecursion(root1));
+        Assert.assertFalse(inOrder.isBinarySearchTreeNoRecursion(root2));
+        Assert.assertFalse(inOrder.isBinarySearchTreeNoRecursion(root3));
+    }
 }

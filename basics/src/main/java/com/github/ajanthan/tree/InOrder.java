@@ -25,6 +25,72 @@ public class InOrder {
         printTree(root.right);
     }
 
+    /**
+     * 4
+     * / \
+     * /   \
+     * 2     6
+     * / \   / \
+     * 1   3 5   7
+     * <p>
+     * 1
+     * \
+     * 2
+     * \
+     * 3
+     * \
+     * 4
+     * \
+     * \
+     * 6
+     * / \
+     * 5   7
+     *
+     * @param root
+     */
+    public void printTreeMorrisTraversal(TreeNode root) {
+        TreeNode current = root, previous;
+        while (current != null) {
+            if (current.left == null) {
+                System.out.print(" " + current.val + " ");
+                current = current.right;
+            } else {
+                previous = current.left;
+                while (previous.right != null) {
+                    previous = previous.right;
+                }
+                previous.right = current;
+                TreeNode temp = current;
+                current = current.left;
+                temp.left = null;
+            }
+        }
+    }
+
+    public boolean isBinarySearchTreeNoRecursion(TreeNode root) {
+        TreeNode currentNode = root, previousNode;
+        int previousVal = Integer.MIN_VALUE;
+        while (currentNode != null) {
+            if (currentNode.left != null) {
+                previousNode = currentNode.left;
+                while (previousNode.right != null) {
+                    previousNode = previousNode.right;
+                }
+                previousNode.right = currentNode;
+                TreeNode temp = currentNode;
+                currentNode = currentNode.left;
+                temp.left = null;
+            } else {
+                if (currentNode.val <= previousVal) {
+                    return false;
+                }
+                previousVal = currentNode.val;
+                currentNode = currentNode.right;
+            }
+        }
+        return true;
+    }
+
     public boolean isBinarySearchTree(TreeNode root) {
         return isInOrder(root, Integer.MIN_VALUE) == null ? false : true;
     }
