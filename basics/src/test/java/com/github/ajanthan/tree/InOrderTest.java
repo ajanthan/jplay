@@ -62,4 +62,24 @@ public class InOrderTest extends TestCase {
         Assert.assertFalse(inOrder.isBinarySearchTreeNoRecursion(root2));
         Assert.assertFalse(inOrder.isBinarySearchTreeNoRecursion(root3));
     }
+
+    public void testRecoverBST() {
+        InOrder inOrder = new InOrder();
+        TreeNode root0 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 6, 5, 7 });
+        TreeNode root1 = inOrder.listToBST(new Integer[]{ 2, 1, 3, 4, 5, 6, 7 });
+        TreeNode root2 = inOrder.listToBST(new Integer[]{ 1, 2, 3, 4, 5, 7, 6 });
+        TreeNode root3 = new TreeNode(1, new TreeNode(3, null, new TreeNode(2)), null);
+
+        inOrder.recoverBST(root0);
+        Assert.assertTrue(inOrder.isBinarySearchTreeNoRecursion(root0));
+
+        inOrder.recoverBST(root1);
+        Assert.assertTrue(inOrder.isBinarySearchTreeNoRecursion(root1));
+
+        inOrder.recoverBST(root2);
+        Assert.assertTrue(inOrder.isBinarySearchTreeNoRecursion(root2));
+
+        inOrder.recoverBST(root3);
+        Assert.assertTrue(inOrder.isBinarySearchTreeNoRecursion(root3));
+    }
 }

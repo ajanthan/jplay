@@ -130,4 +130,46 @@ public class InOrder {
         return isBinarySearchTreeRecursive(root.left, root.val, min)
             && isBinarySearchTreeRecursive(root.right, max, root.val);
     }
+
+    public void recoverBST(TreeNode root) {
+        TreeNode cur = root, prev, prevValNode = null, firstNode = null, secondNode = null;
+
+        while (cur != null) {
+            if (cur.left == null) {
+                if (firstNode == null && prevValNode != null && prevValNode.val >= cur.val) {
+                    firstNode = prevValNode;
+                    secondNode = cur;
+                }
+                if (firstNode != null && prevValNode.val >= cur.val) {
+                    secondNode = cur;
+                }
+                prevValNode = cur;
+                cur = cur.right;
+            } else {
+                prev = cur.left;
+                while (prev.right != null && prev.right != cur) {
+                    prev = prev.right;
+                }
+                if (prev.right == null) {
+                    prev.right = cur;
+                    cur = cur.left;
+                } else {
+                    prev.right = null;
+                    if (firstNode == null && prevValNode != null && prevValNode.val >= cur.val) {
+                        firstNode = prevValNode;
+                        secondNode = cur;
+                    }
+                    if (firstNode != null && prevValNode.val >= cur.val) {
+                        secondNode = cur;
+                    }
+                    prevValNode = cur;
+                    cur = cur.right;
+
+                }
+            }
+        }
+        int temp = firstNode.val;
+        firstNode.val = secondNode.val;
+        secondNode.val = temp;
+    }
 }
